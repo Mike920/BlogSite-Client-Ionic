@@ -1,0 +1,60 @@
+﻿<ion-view view-title="EditBlog">
+    <ion-content>
+        <h2>Edit</h2>
+
+        <form id="upload-form" novalidate="novalidate">
+            <div class="form-horizontal">
+                <h4>Blog</h4>
+                <hr />
+
+                <input data-val="true" data-val-number="The field Id must be a number." data-val-required="Pole Id jest wymagane." id="Id" name="Id" type="hidden" value="1" ng-model="model.Id">
+
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Name">Name</label>
+                    <div class="col-md-10">
+                        <input class="form-control " data-val="true" data-val-remote="&#39;Name&#39; is invalid." data-val-remote-additionalfields="*.Name,*.Id" data-val-remote-url="/Validation/IsBlogNameUniqueOrUnchanged" data-val-required="Pole Name jest wymagane." id="Name" name="Name" type="text" value="" ng-model="model.Name">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Name" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="UrlName">Address</label>
+                    <div class="col-md-10">
+                        <input class="form-control" data-val="true" data-val-remote="&#39;Address&#39; is invalid." data-val-remote-additionalfields="*.UrlName,*.Id" data-val-remote-url="/Validation/IsBlogUrlUniqueOrUnchanged" data-val-required="Pole Address jest wymagane." id="UrlName" name="UrlName" type="text" value="" ng-model="model.UrlName">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="UrlName" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="Description">Description</label>
+                    <div class="col-md-10">
+                        <textarea class="form-control" data-val="true" data-val-required="Pole Description jest wymagane." id="Description" name="Description" ng-model="model.Description"></textarea>
+                        <span class="field-validation-valid text-danger" data-valmsg-for="Description" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="ImageUrl">ImageUrl</label>
+                    <div class="col-md-10">
+                        <input class="form-control" data-val="true" data-val-required="Pole ImageUrl jest wymagane." id="ImageUrl" name="ImageUrl" type="text" value="" ng-model="model.ImageUrl">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="ImageUrl" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-md-2" for="CategoryId">CategoryId</label>
+                    <div class="col-md-10">
+
+                        <input class="form-control" data-val="true" data-val-number="The field CategoryId must be a number." data-val-required="Pole CategoryId jest wymagane." id="CategoryId" name="CategoryId" type="number" value="" ng-model="model.CategoryId">
+                        <span class="field-validation-valid text-danger" data-valmsg-for="CategoryId" data-valmsg-replace="true"></span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <div class="col-md-offset-2 col-md-10">
+                        <input id="submit" type="button" ng-disabled="loading" ng-click="submit()" value="Save" class="btn btn-default" />
+                    </div>
+                </div>
+            </div>
+        </form>
+        <script src="../scripts/frameworks/jquery.validate.js"></script>
+        <script src="../scripts/frameworks/jquery.validate.unobtrusive.js"></script>
+        <script src="../scripts/frameworks/autoNgModel.js"></script>
+    </ion-content>
+</ion-view>
